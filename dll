@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct node
+{
+   int data;
+   
+   struct node*prev;
+   struct node*next;
+}
+node;
+
+node* createll()
+{
+ printf("enter the numbers u have to add in the dll");
+ int n;
+ scanf("%d",&n);
+
+ 
+  node n1;n1.prev=NULL;n1.next=NULL;
+  printf("enter the data of the node");
+  scanf("%d",&n1.data);
+  node*head=&n1;
+  node*temp=&n1;
+  
+ for(int i=1;i<n;i++)
+ {
+  node n;n.prev=NULL;n.next=NULL;
+  printf("enter the data of the node");
+  scanf("%d",&n.data);
+  temp->next=&n;
+  n.prev=temp;
+  temp=&n;
+ }
+ return head;
+ 
+}
+
+void printll(node*head)
+{
+ node*temp=head;
+ while(temp!=NULL)
+ {
+  printf(" %d ", temp->data);
+  temp=temp->next;
+ }
+
+}
+
+
+
+int main()
+{
+    
+    node*head=createll();
+    printll(head);
+    
+  
+
+}
